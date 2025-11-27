@@ -9,8 +9,8 @@ builder.Services.AddMassTransit(x =>
     {
         cfg.Host("rabbitmq://localhost");
         cfg.Message<OrderPlaced>( x => x.SetEntityName("order-placed-exchange"));
-        cfg.Publish<OrderPlaced>( p => p.ExchangeType = "direct");
-        //cfg.Publish<OrderPlaced>( p => p.ExchangeType = "fanout");
+        //cfg.Publish<OrderPlaced>( p => p.ExchangeType = "direct");
+        cfg.Publish<OrderPlaced>( p => p.ExchangeType = "fanout");
         // Additional configuration can be added here if needed
     });
 });
