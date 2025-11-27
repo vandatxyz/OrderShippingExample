@@ -14,11 +14,6 @@ builder.Services.AddMassTransit(x =>
         cfg.ReceiveEndpoint("shipping-order-queue", e =>
         {
             e.Consumer<OrderPlacedConsumer>(context);
-
-            e.Bind("order-placed-exchange", s =>
-            {
-                s.ExchangeType = "fanout";
-            });
         });
     });
 });
