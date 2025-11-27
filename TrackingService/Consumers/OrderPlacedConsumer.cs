@@ -1,13 +1,13 @@
 ﻿using MassTransit;
 using SharedMessages.Messages;
 
-namespace ShippingService.Consumers
+namespace TrackingService.Consumers
 {
     public class OrderPlacedConsumer : IConsumer<OrderPlaced>
     {
         public Task Consume(ConsumeContext<OrderPlaced> context)
         {
-            Console.WriteLine($"[ShippingService] OrderPlaced received: OrderId={context.Message.OrderId}, Quantity={context.Message.Quantity}");
+            Console.WriteLine($"[TrackingService] OrderPlaced received: OrderId={context.Message.OrderId}, Quantity={context.Message.Quantity}");
             return Task.CompletedTask;
         }
     }
